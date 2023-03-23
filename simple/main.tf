@@ -1,16 +1,14 @@
-terraform {
-  required_version = "~> 1.0" 
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.0"
-    }
-  }
+provider "aws"{
+   region = "ap-south-1"
 }
 
-
-provider "aws" {
-  region = var.aws_region
-  #profile = "default"
+resource "aws_instance" "AWSEC2Instance" 
+{
+ami = "ami-0e07dcaca348a0e68"
+instance_type = ""
+security_group = "launch-wizard-2"
+key_name  =  "mani-key.pem"
+tags = {
+Name = EC2 Instance By Terraform"
 }
-
+}
