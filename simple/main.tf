@@ -7,3 +7,12 @@ resource "aws_instance" "AWSEC2Instance"{
     Name = "EC2 Instance By Terraform"
   }
 }
+terraform {
+  required_version = "~> 1.0" 
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.0"
+    }
+  }
+}
