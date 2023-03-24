@@ -1,13 +1,9 @@
-provider "aws" {
-    access_key = "${var.access_key}"
-    secret_key = "${var.secret_key}"
-    region = "ap-south-1"
+resource "aws_instance" "AWSEC2Instance"{
+  ami = "ami-0376ec8eacdf70aae"
+  instance_type = "t2.micro"
+  security_groups = ["launch-wizard-1"]
+  key_name = "mani-key"
+  tags = {
+    Name = "EC2 Instance By Terraform"
+  }
 }
-resource "aws_instance" "ec2_instance" {
-    ami = "${var.ami_id}"
-    count = "${var.number_of_instances}"
-    subnet_id = "${var.subnet_id}"
-    instance_type = "${var.instance_type}"
-    key_name = "${var.ami_key_pair_name}"
-} 
-
