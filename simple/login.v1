@@ -1,0 +1,9 @@
+{
+  "login.v1": {
+    "client": "terraform-cli",
+    "grant_types": ["authz_code"],
+    "authz": "/oauth/authorization",
+    "token": "/oauth/token",
+    "ports": [10000, 10010],
+  }
+}
