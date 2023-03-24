@@ -1,37 +1,17 @@
-variable "access_key" {
-        description = "Access key to AWS console"
+resource "aws_instance" "AWSEC2Instance"{
+  ami = "ami-0376ec8eacdf70aae"
+  instance_type = "t2.micro"
+  security_groups = ["launch-wizard-1"]
+  key_name = "mani-key"
+  tags = {
+    Name = "EC2 Instance By Terraform"
+  }
 }
-variable "secret_key" {
-        description = "Secret key to AWS console"
+[root@ip-172-31-45-113 simple]# ls
+main.tf  provider.tf  terraform.tfstate  terraform.tfstate.backup
+[root@ip-172-31-45-113 simple]# cat provider.tf
+provider "aws"{
+  region = "ap-south-1"
+  access_key = "AKIAQZZPUUQEWDTBPH6I"
+  secret_key = "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"
 }
-
-
-variable "instance_name" {
-        description = "Name of the instance to be created"
-        default = "awsbuilder-demo"
-}
-
-variable "instance_type" {
-        default = "t2.micro"
-}
-
-variable "subnet_id" {
-        description = "The VPC subnet the instance(s) will be created in"
-        default = "subnet-0f8fe90983bea606e"
-}
-
-variable "ami_id" {
-        description = "The AMI to use"
-        default = "ami-0376ec8eacdf70aae"
-}
-
-variable "number_of_instances" {
-        description = "number of instances to be created"
-        default = 1
-}
-
-
-variable "ami_key_pair_name" {
-        default = "mani-key"
-}
-
